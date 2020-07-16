@@ -33,6 +33,10 @@
     const   pg = require('pg'  );
     const  URL = require('url' );//:Differentiate_From_url_var
   
+//:FILE_SCOPE_CONSTANTS:
+
+    //:VIT:Variable_Integer_Tags:
+    const SOB_VIT=( 1 );
 
 //:FILE_SCOPE_VARIABLES:
 
@@ -66,27 +70,28 @@ const HN5_NEW_sob=function( /** void **/ ){
 };;
 
 const HN5_End_001 =function( sob ){
-
+    if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:001]"); };
     sob.res.end( );
 
 };;
 const HN5_End_002 =function( sob , str ){
-
+    if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:002]"); };
     sob.res.end( str );
 
 };;
 const HN5_End_003 =function( sob , cof , enc ){
-
+    if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:003]"); };
     sob.res.end( cof, "utf-8" );
 
 };;
 const HN5_Wri_002 =function( sob, str ){
-
+    if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:004]"); };
     sob.res.write( str );
 
 };;
 
 const HN5_Wri_Hea_200 =function( sob , cto ){
+    if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:005]"); };
 
     //:cto: content_type_object
     sob.res.writeHead(200, cto);
@@ -243,7 +248,7 @@ const HN2_SQL_Get_Tes =function( sob ){ "use strict"
 
     }).finally(()=>{
 
-        HN5_End_001( sob.res );
+        HN5_End_001( sob );
 
     });;
 };;
