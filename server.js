@@ -80,6 +80,12 @@ const HN5_End_003 =function( sob , cof , enc ){
     sob.res.end( cof, "utf-8" );
 
 };;
+const HN5_Wri_002 =function( sob, str ){
+
+    sob.res.write( str );
+
+};;
+
 const HN5_Wri_Hea_200 =function( sob , cto ){
 
     //:cto: content_type_object
@@ -227,11 +233,11 @@ const HN2_SQL_Get_Tes =function( sob ){ "use strict"
         sob.cof = cof_ros[ 0 ]; //:Contents_Of_File
         sob.ros = cof_ros[ 1 ]; //:Query____Results
 
-        HN5_Wri_002(sob.res, "[HN3_S01]");
+        HN5_Wri_002(sob, "[HN3_S01]");
 
     }).catch((obj_err)=>{
 
-        HN5_Wri_002( sob.res
+        HN5_Wri_002( sob
         ,   "(" + "[HN2_E01]:" + obj_err.toString() + ")"
         );;
 
