@@ -84,6 +84,16 @@ const HN5_err_CTO_str =function( err ){
 
         if( err.vit == SOB_VIT ){
             str = "[SOB_PASSED_AS_ERROR_OBJECT]";
+        }else
+        if( Object.hasOwnProperty("toString") ){
+
+            //:Iterating through "Object.entries" can give
+            //:you a lot of confusing information if the
+            //:object is some type of error object that
+            //:was designed to be converted into a string
+            //:with this method.
+            str = err.toString();
+
         }else{
 
             //:///////////////////////////////////SC[JSODELO]://
