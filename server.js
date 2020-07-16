@@ -47,7 +47,7 @@
 
 const HN5_NEW_sob=function( /** void **/ ){
     const HN5_sob={
-        vit :    0 //: Variable_Integer_Tag
+        vit : SOB_VIT //: Variable_Integer_Tag
 
     ,   req : null //: \__ rar[0|1]
     ,   res : null //: /
