@@ -422,9 +422,9 @@ const HN2_Rou=function( req , res ){ "use strict"
         sob.req =( req     );
         sob.res =( res     );
 
-        //: par: PARameter (query params )
+        //: pam: PAraMeters (query params ) (par==parent)
         //: url: URL: Relative URL
-        sob.par =URL.parse( req.url , true ).query;
+        sob.pam =URL.parse( req.url , true ).query;
         sob.url =(          req.url              );
 
     //:Declare_And_Summarize_All_Function_Variables:
