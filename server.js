@@ -86,6 +86,7 @@ const HN5_Err_CTO_Str =function( err ){
             str = "[SOB_PASSED_AS_ERROR_OBJECT]";
         }else{
 
+            //:///////////////////////////////////SC[JSODELO]://
             var any_obj =( err ) ;
             var arr_ent = [] ; //:TopLevelKeyValuePairsNoProto
             var str_cur = "" ; //:Current_String_Being_Built
@@ -102,6 +103,7 @@ const HN5_Err_CTO_Str =function( err ){
                 str_cur =( `${key}:${val}` );
                 str_all =( str_all + "\n" + str_cur );
             };;
+            //:///////////////////////////////////SC[JSODELO]://
 
             str=( str_all );
         };;
@@ -213,7 +215,7 @@ const HN3_Run_cof
 
     };;
 
-    if( pas > 0 ){         return( sob ); }   //:Resolve
+    if( pas > 0 ){         return( err ); }   //:Resolve
     return(        Promise.reject( sob )  );; //:Reject
 };;
 
