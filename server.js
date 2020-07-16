@@ -69,6 +69,47 @@ const HN5_NEW_sob=function( /** void **/ ){
     return( HN5_sob /** sob **/ );
 };;
 
+const HN5_Err_CTO_Str =function( err ){
+
+    str = "";
+    if(typeof( err ) == "string" ){
+        str = err;
+    }else
+    if( null == err ){
+
+        str = "[NULL_ERR]";
+
+    }else
+    if(typeof( err ) == "object" ){
+
+        if( err.vit == SOB_VIT ){
+            str = "[SOB_PASSED_AS_ERROR_OBJECT]";
+        }else{
+
+            var any_obj =( err ) ;
+            var arr_ent = [] ; //:TopLevelKeyValuePairsNoProto
+            var str_cur = "" ; //:Current_String_Being_Built
+            var str_all = "" ; //:String_Of_Evertyhing
+            var key_val = [] ; //:Current [key,val]
+            var     key =null; //:Current_Key
+            var     val =null; //:Current_Value
+
+            arr_ent=( Object.entries( any_obj ) );
+            
+            for(           key_val of arr_ent ){
+                key     =( key_val[0] );
+                val     =( key_val[1] );
+                str_cur =( `${key}:${val}` );
+                str_all =( str_all + "\n" + str_cur );
+            };;
+
+            str=( str_all );
+        };;
+    };;
+
+    return( str );
+};;
+
 const HN5_End_001 =function( sob ){
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:001]"); };
     sob.res.end( );
@@ -212,8 +253,14 @@ const HN3_Run_fas
             
                     ror_boo=(  2  );
                     sob.err=( sob.err + err ); 
-                    HN5_Wri_002( sob, 
-                        "(" + "[HN3_E03]:"+err.toString() +")"
+                    HN5_Wri_002( 
+                        sob
+                    ,       (    ""
+                            +    "(" 
+                            +    "[HN3_E03]:"
+                            +    HN5_Err_CTO_Str( err )
+                            +    ")"
+                            )
                     );;
             
                 })
