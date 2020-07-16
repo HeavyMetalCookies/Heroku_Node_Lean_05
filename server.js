@@ -215,8 +215,8 @@ const HN3_Run_cof
 
     };;
 
-    if( pas > 0 ){         return( err ); }   //:Resolve
-    return(        Promise.reject( sob )  );; //:Reject
+    if( pas > 0 ){   return( sob /** resolver **/ ); }   
+    return(  Promise.reject( err /** rejector **/ )  );;  
 };;
 
 const HN3_Run_fas 
