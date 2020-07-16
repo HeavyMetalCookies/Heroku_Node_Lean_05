@@ -157,7 +157,7 @@ const HN3_Run_cof
         +   "[HN3_Run_cof.cof](((" + sob.cof + ")))"
         +   "[HN3_E01]:" + inn_err.toString() 
         );;
-        sob.err=( sob.err || err );
+        sob.err=( sob.err + err );
 
         pas=( 0-1 );
 
@@ -207,7 +207,7 @@ const HN3_Run_fas
                 }).catch((err)=>{
             
                     ror_boo=(  2  );
-                    sob.err=( sob.err || err ); //:#FEO#://
+                    sob.err=( sob.err + err ); 
                     HN4_Wri_002( sob, 
                         "(" + "[HN3_E03]:"+err.toString() +")"
                     );;
@@ -218,7 +218,7 @@ const HN3_Run_fas
         }).catch(( err_obj )=>{
 
             ror_boo=(    2    );
-            sob.err=( sob.err || err_obj ); //:#FEO#://
+            sob.err=( sob.err + err_obj ); //:#FEO#://
             HN5_Wri_002( sob, "[HN3_E02]:"+err_obj.toString );
 
         }).finally(()=>{
@@ -231,7 +231,9 @@ const HN3_Run_fas
             }else{
                 //:This section should never execute.
                 //:Indicates a programmer logic error.
-                sob.err=( "[[HN3_E04]:ror_boo]:"+ror_boo );;
+                sob.err =( sob.err+
+                    ( "[[HN3_E04]:ror_boo]:"+ror_boo )
+                );;
                 njs_rejector( sob )
             };;
 
