@@ -55,6 +55,23 @@ const HN5_NEW_sob=function( /** void **/ ){
     return( HN5_sob /** sob **/ );
 };;
 
+const HN5_End_002 =function( sob , str ){
+
+    sob.res.end( str );
+
+};;
+const HN5_End_003 =function( sob , cof , enc ){
+
+    sob.res.end( cof, "utf-8" );
+
+};;
+const HN5_Wri_Hea_200 =function( sob , cto ){
+
+    //:cto: content_type_object
+    sob.res.writeHead(200, cto);
+
+};;
+
 const HN2_Get_fas =function( src_pat ){
 
     const hn2_executor=( njs_resolver , njs_rejector )=>{
@@ -213,21 +230,22 @@ const HN2_SQL_Get_Tes =function( rar_daw ){ "use strict"
     });;
 };;
 
-const HN1_Ser_Fil =function( rar_daw ){ "use strict"
+const HN1_Ser_Fil =function( sob ){ "use strict"
 
     var rar=rar_daw[ 0 ];
     var daw=rar_daw[ 1 ];
     
-    fs.readFile( daw[0],function(obj_err, cof ){
+    fs.readFile( dat,function(obj_err, cof ){
 
         if(obj_err){
 
-            rar[1].end("[not_nil:obj_err]");
+            HN5_End_002( sob, "[not_nil:obj_err]");
 
         }else{
 
-            rar[1].writeHead(200,{ "Content-Type": daw[1] });
-            rar[1].end( cof , "utf-8" );
+            var mim_typ=( sob.wha ); //:MimeType
+            HN5_Wri_Hea_200(sob, { "Content-Type": mim_typ } );
+            HN5_End_003( sob, cof , "utf-8" );
 
         };;
     });;
@@ -420,24 +438,11 @@ const HN4_Pri_rar_daw_cof_ros=function(
 //:__________________________________________________________://
 const HN2_Rou=function( req , res ){ "use strict"
 
-    var sob = HN5_NEW_sob(); //:sob:State_Object
-
-        sob.req =( req     );
-        sob.res =( res     );
-
-        //: pam: PAraMeters (query params ) (par==parent)
-        //: url: URL: Relative URL
-        sob.pam =URL.parse( req.url , true ).query;
-        sob.url =(          req.url              );
-
     //:Declare_And_Summarize_All_Function_Variables:
-    var rar     =[ req,res ]; //:Request_And_Response_Tuple
-    var url     = rar[0].url; //:Requested_URL
+    var sob     = HN5_NEW_sob(); //:sob:State_Object
     var tab_daw = null      ; //:TABle_of:Data_and_Whatever
-    var     daw = null      ; //:selected:Data_and_Whatever
     var tab_act = null      ; //:TABle_of:ACTion(s)
-    var     act = null      ; //:selected:ACTion
-    var rar_daw = null      ; //:[ rar, daw ]
+    var     daw = null      ; //:selected:Data_and_Whatever 
              
     tab_daw={  
         "/K" : [ "./server.js", "text/plain"      ]
@@ -458,7 +463,6 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/CRUD_D" :[ "./SQL/D._"  , "SQL_RUN_D"   ]
     
     };;
-    daw=( tab_daw[ url ] || tab_daw[ "/K" ] );
     tab_act={ 
         "text/plain"      : HN1_Ser_Fil
     ,   "text/html"       : HN1_Ser_Fil
@@ -470,9 +474,25 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "SQL_RUN_U"       : HN4_SQL_Run_U
     ,   "SQL_RUN_D"       : HN4_SQL_Run_D
     };;
-    act = tab_act[ daw[ 1 ] ];
-    rar_daw=[rar,daw]; 
-    act(     rar_daw );
+
+    //:rar:Request_And_Response:
+    sob.req =( req     ); //:rar[ 0 ]
+    sob.res =( res     ); //:rar[ 1 ]
+    
+    //:rap:Relativeurl_And_Parameters_of_query
+    sob.url =(          req.url              ); //:rap[ 0 ]
+    sob.pam =URL.parse( req.url , true ).query; //:rap[ 1 ]
+    
+    //: daw: Data_And_Whatever
+        daw=( tab_daw[ sob.url ] || tab_daw[ "/K" ] );
+    sob.dat=( daw[ 0 ] );
+    sob.wha=( daw[ 1 ] );
+
+    //: act: Action to take function.
+    sob.act=( tab_act[ wha ] );
+
+    //:Call action function:
+    sob.act( sob );
 
 };;
 
