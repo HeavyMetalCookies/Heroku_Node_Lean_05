@@ -85,7 +85,7 @@ const HN5_err_CTO_str =function( err ){
         if( err.vit == SOB_VIT ){
             str = "[SOB_PASSED_AS_ERROR_OBJECT]";
         }else
-        if( Object.hasOwnProperty("toString") ){
+        if( err.hasOwnProperty("toString") ){
 
             //:Iterating through "Object.entries" can give
             //:you a lot of confusing information if the
