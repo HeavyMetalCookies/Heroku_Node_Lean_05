@@ -41,9 +41,10 @@
 
 const HN5_NEW_sob=function( /** void **/ ){
     const HN5_sob={
+        vit :    0 //: Variable_Integer_Tag
 
-        req : null //: \__rar[0|1]
-        res : null //: /
+    ,   req : null //: \__rar[0|1]
+    ,   res : null //: /
 
     };;Object.seal( HN5_sob     );
     return( HN5_sob /** sob **/ );
