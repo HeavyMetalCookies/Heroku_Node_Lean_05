@@ -56,10 +56,17 @@ const HN5_NEW_sob=function( /** void **/ ){
 
     ,   act : null //: --- act:Action(Function)
 
+    ,   err : null //: --- err:Error.Typically_First_Error
+
     };;Object.seal( HN5_sob     );
     return( HN5_sob /** sob **/ );
 };;
 
+const HN5_End_001 =function( sob ){
+
+    sob.res.end( );
+
+};;
 const HN5_End_002 =function( sob , str ){
 
     sob.res.end( str );
@@ -143,61 +150,61 @@ const HN3_Run_cof
 };;
 
 const HN3_Run_fas 
-=function( 
-    rar
-,   src_pat 
-){
+=function( sob ){ "use strict"
+
+
     const hn3_executor=( njs_resolver , njs_rejector )=>{
 
         var ror_boo =( 0 ); //:1:Resolve, 2:Reject
-        var ror_dat = null; //:ResolveOrRejectData
+        var src_pat =( sob.dat );
 
         HN2_Get_fas( src_pat )
        .then(( cof )=>{
 
             ror_boo=( 0-2 );
+            sob.cof=( cof );
             
             //:RETURN ANOTHE PROMISE, DO NOT   //:///////////://
             //:BREAK THE PROMISE CHAIN!        //:///////////://    
             return( //://////////////////////////////////////://
                     
             
-                HN3_Run_cof( rar, cof )
+                HN3_Run_cof( sob )
                 .then(( ros )=>{
             
                     //:Successful execution of query
-            
+                    sob.ros=( ros );
                     ror_boo=(  1  );
-                    ror_dat=( [cof,ros] );
             
                 }).catch((err)=>{
             
                     ror_boo=(  2  );
-                    ror_dat=( err );
-                    rar[1].write( 
+                    sob.err=( sob.err || err ); //:#FEO#://
+                    HN4_Wri_002( sob, 
                         "(" + "[HN3_E03]:"+err.toString() +")"
                     );;
             
                 })
             );; //://////////////////////////////////////////://
 
-        }).catch((obj_err)=>{
+        }).catch(( err )=>{
 
             ror_boo=(    2    );
-            ror_dat=( obj_err );
-            rar[1].write( "[HN3_E02]:"+err.toString );
+            sob.err=( sob.err || err ); //:#FEO#://
+            HN5_Wri_002( sob, "[HN3_E02]:"+err.toString );
 
         }).finally(()=>{
 
             if( 1 == ror_boo ){
-                njs_resolver( ror_dat ); //:[cof,ros]
+                njs_resolver( sob ); //:[cof,ros]
             }else
             if( 2 == ror_boo ){
-                njs_rejector( ror_dat ); //:(obj_err)
+                njs_rejector( sob ); //:(obj_err)
             }else{
                 //:This section should never execute.
                 //:Indicates a programmer logic error.
-                njs_rejector("[[HN3_E04]:ror_boo]:"+ror_boo)
+                sob.err=( "[[HN3_E04]:ror_boo]:"+ror_boo );;
+                njs_rejector( sob )
             };;
 
         });;
@@ -208,29 +215,25 @@ const HN3_Run_fas
     return( pro );
 };;
 
-const HN2_SQL_Get_Tes =function( rar_daw ){ "use strict"
+const HN2_SQL_Get_Tes =function( sob ){ "use strict"
 
-    //: rar daw = raw_daw[0|1]
-    var rar     = rar_daw[ 0 ];
-    var     daw = rar_daw[ 1 ];
-
-    HN3_Run_fas( rar, daw[0] /* src_pat */ )
+    HN3_Run_fas( sob )
     .then(( cof_ros )=>{
 
-        var cof = cof_ros[ 0 ]; //:Contents_Of_File
-        var ros = cof_ros[ 1 ]; //:Query____Results
+        sob.cof = cof_ros[ 0 ]; //:Contents_Of_File
+        sob.ros = cof_ros[ 1 ]; //:Query____Results
 
-        rar[1].write("[HN3_S01]");
+        HN5_Wri_002(sob.res, "[HN3_S01]");
 
     }).catch((obj_err)=>{
 
-        rar[1].write( 
-            "(" + "[HN2_E01]:" + obj_err.toString() + ")"
+        HN5_Wri_002( sob.res
+        ,   "(" + "[HN2_E01]:" + obj_err.toString() + ")"
         );;
 
     }).finally(()=>{
 
-        rar[1].end();
+        HN5_End_001( sob.res );
 
     });;
 };;
