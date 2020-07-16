@@ -50,6 +50,11 @@ const HN5_NEW_sob=function( /** void **/ ){
 
     ,   url : null //: \__ rap[0|1]
     ,   pam : null //: /
+    
+    ,   dat : null //: \__ daw[0|1]
+    ,   wha : null //: /
+
+    ,   act : null //: --- act:Action(Function)
 
     };;Object.seal( HN5_sob     );
     return( HN5_sob /** sob **/ );
