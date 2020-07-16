@@ -105,9 +105,17 @@ const HN2_Get_fas =function( src_pat ){
         fs.readFile( src_pat,function(obj_err, cof ){
             if( obj_err ){
 
+                console.log(
+                    "[DEBUG:HN2_Get_fas:REJECT:src_pat]:"
+                +                              src_pat );;
+
                 njs_rejector( obj_err );
 
             }else{
+
+                console.log(
+                    "[DEBUG:HN2_Get_fas:RESOLVE:cof]:"
+                +                               cof );;
 
                 njs_resolver( cof );
 
