@@ -56,6 +56,9 @@ const HN5_NEW_sob=function( /** void **/ ){
 
     ,   act : null //: --- act:Action(Function)
 
+    ,   cof : null //: \__ cof_ros[0|1]
+    ,   ros : null //: /
+
     ,   err : null //: --- err:Error.Typically_First_Error
 
     };;Object.seal( HN5_sob     );
@@ -106,14 +109,12 @@ const HN2_Get_fas =function( src_pat ){
 };;
 
 const HN3_Run_cof
-=async function(
-    rar
-,   cof
-){
-    if( !rar    ){throw("[HN3_E06.A]"); };
-    if( !rar[0] ){throw("[HN3_E06.B]"); };
-    if( !rar[1] ){throw("[HN3_E06.C]"); };
-    if( !cof    ){throw("[HN3_E05]"  ); };
+=async function( sob ){ "use strict"
+
+    if( !sob     ){throw("[HN3_E06.A]"); };
+    if( !sob.req ){throw("[HN3_E06.B]"); };
+    if( !sob.res ){throw("[HN3_E06.C]"); };
+    if( !sob.cof ){throw("[HN3_E05]"  ); };
 
     var cli=null;
     var err="[HN3_E01:NOT_SET]";
@@ -125,17 +126,20 @@ const HN3_Run_cof
 
         await cli.connect();
         await cli.query("BEGIN" );
-        ros =await( cli.query( "" + cof + "" ) );
+        ros =await( cli.query( "" + sob.cof + "" ) );
         await cli.query("COMMIT");
         
+        sob.ros=( ros );
         pas=( 0+1 );
 
     }catch( inn_err ){
 
         err=( ""
-        +   "[HN3_Run_cof.cof](((" + cof + ")))"
+        +   "[HN3_Run_cof.cof](((" + sob.cof + ")))"
         +   "[HN3_E01]:" + inn_err.toString() 
         );;
+        sob.err=( sob.err || err );
+
         pas=( 0-1 );
 
     }finally{
@@ -145,8 +149,8 @@ const HN3_Run_cof
 
     };;
 
-    if( pas > 0 ){         return( ros ); }   //:Resolve
-    return(        Promise.reject( err )  );; //:Reject
+    if( pas > 0 ){         return( sob ); }   //:Resolve
+    return(        Promise.reject( sob )  );; //:Reject
 };;
 
 const HN3_Run_fas 
