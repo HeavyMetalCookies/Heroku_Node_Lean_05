@@ -223,7 +223,10 @@ const HN3_Run_fas
 
             ror_boo=(    2    );
             sob.err=( sob.err + err_obj ); //:#FEO#://
-            HN5_Wri_002( sob, "[HN3_E02]:"+err_obj.toString );
+            HN5_Wri_002( 
+            /**/    sob
+            ,      "[HN3_E02]:"+err_obj.toString()
+            );;
 
         }).finally(()=>{
 
