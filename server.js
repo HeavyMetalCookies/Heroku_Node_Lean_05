@@ -237,10 +237,9 @@ const HN2_SQL_Get_Tes =function( rar_daw ){ "use strict"
 
 const HN1_Ser_Fil =function( sob ){ "use strict"
 
-    var rar=rar_daw[ 0 ];
-    var daw=rar_daw[ 1 ];
+    var pof=( sob.dat ); //:pof[ path_of_file (fil_pat) ]
     
-    fs.readFile( dat,function(obj_err, cof ){
+    fs.readFile( pof,function(obj_err, cof ){
 
         if(obj_err){
 
@@ -248,8 +247,8 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
 
         }else{
 
-            var mim_typ=( sob.wha ); //:MimeType
-            HN5_Wri_Hea_200(sob, { "Content-Type": mim_typ } );
+            var mit=( sob.wha ); //:MimeType
+            HN5_Wri_Hea_200(sob, { "Content-Type": mit } );
             HN5_End_003( sob, cof , "utf-8" );
 
         };;
