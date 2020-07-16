@@ -172,6 +172,11 @@ const HN3_Run_fas
 
         var ror_boo =( 0 ); //:1:Resolve, 2:Reject
         var src_pat =( sob.dat );
+        if( (!src_pat)||(!sob.dat)){ 
+            throw("[HN5_NO_SOB_DAT]");
+        }else{
+            console.log("[DEBUG:src_pat]:", src_pat );
+        };;
 
         HN2_Get_fas( src_pat )
        .then(( cof )=>{
@@ -202,11 +207,11 @@ const HN3_Run_fas
                 })
             );; //://////////////////////////////////////////://
 
-        }).catch(( err )=>{
+        }).catch(( err_obj )=>{
 
             ror_boo=(    2    );
-            sob.err=( sob.err || err ); //:#FEO#://
-            HN5_Wri_002( sob, "[HN3_E02]:"+err.toString );
+            sob.err=( sob.err || err_obj ); //:#FEO#://
+            HN5_Wri_002( sob, "[HN3_E02]:"+err_obj.toString );
 
         }).finally(()=>{
 
