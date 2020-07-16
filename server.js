@@ -109,7 +109,11 @@ const HN2_Get_fas =function( src_pat ){
                     "[DEBUG:HN2_Get_fas:REJECT:src_pat]:"
                 +                              src_pat );;
 
-                njs_rejector( obj_err );
+            //:     njs_rejector( obj_err );
+                    njs_rejector( ""
+                    +   "[HN2_Get_fas:Failed_To_Read_File]"
+                    +   "[src_pat]:(((" + src_pat + ")))"
+                    );;
 
             }else{
 
