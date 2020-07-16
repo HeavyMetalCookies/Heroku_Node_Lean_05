@@ -31,6 +31,8 @@
     const http = require('http');
     const   fs = require('fs'  );
     const   pg = require('pg'  );
+    const  URL = require('url' );//:Differentiate_From_url_var
+    ,,
 
 //:FILE_SCOPE_VARIABLES:
 
@@ -417,6 +419,14 @@ const HN2_Rou=function( req , res ){ "use strict"
 
     var sob = HN5_NEW_sob(); //:sob:State_Object
 
+        sob.req =( req     );
+        sob.res =( res     );
+
+        //: par: PARameter (query params )
+        //: url: URL: Relative URL
+        sob.par =URL.parse( req.url , true ).query;
+        sob.url =(          req.url              );
+
     //:Declare_And_Summarize_All_Function_Variables:
     var rar     =[ req,res ]; //:Request_And_Response_Tuple
     var url     = rar[0].url; //:Requested_URL
@@ -425,57 +435,41 @@ const HN2_Rou=function( req , res ){ "use strict"
     var tab_act = null      ; //:TABle_of:ACTion(s)
     var     act = null      ; //:selected:ACTion
     var rar_daw = null      ; //:[ rar, daw ]
-    
-    //:To_Avoid_Clutter_Summarize_And_Label_Actions_Below:
-    //: 01: [ shortcut / path ]==>[ data , action ]
-    //:     In other words:
-    //:         tab_daw[ url ][ 0 ] == Associated data
-    //:         tab_daw[ url ][ 1 ] == What to do with data?
-    //:
-    //: 02: Decide what [ data, action ] pair to use:
-    //:     In other words:
-    //:         what_to_do_with_data_FUNCTION=(
-    //:             tab_act[ what_to_do_with_data_STRING ] )
-    //:         
-    //: 03: [ action (string) ]==>[ action (function) ]
-    //: 04: Select action to use with data:
-    //: 05: Help connect_the_dots when reading code.
-    //: 06: Perform selected action on data:
              
-    /* 01 */    tab_daw={  
-    /* -- */        "/K" : [ "./server.js", "text/plain"      ]
-    /* -- */    ,   "/H" : [ "./htm._"    , "text/html"       ]
-    /* -- */    ,   "/J" : [ "./j_s._"    , "text/javascript" ]
-    /* -- */    ,   "/T" : [ "./sql._"    , "SQL_GET_TEST"    ]
-
-                ,   "/C"      :[ "./SQL/C._"  , "SQL_RUN_C"   ]
-                ,   "/CRUD_C" :[ "./SQL/C._"  , "SQL_RUN_C"   ]
-                                                              
-                ,   "/R"      :[ "./SQL/R._"  , "SQL_RUN_R"   ]
-                ,   "/CRUD_R" :[ "./SQL/R._"  , "SQL_RUN_R"   ]
-                                                              
-                ,   "/U"      :[ "./SQL/U._"  , "SQL_RUN_U"   ]
-                ,   "/CRUD_U" :[ "./SQL/U._"  , "SQL_RUN_U"   ]
-                                                              
-                ,   "/D"      :[ "./SQL/D._"  , "SQL_RUN_D"   ]
-                ,   "/CRUD_D" :[ "./SQL/D._"  , "SQL_RUN_D"   ]
-                
-    /* -- */    };;
-    /* 02 */    daw=( tab_daw[ url ] || tab_daw[ "/K" ] );
-    /* 03 */    tab_act={ 
-    /* -- */        "text/plain"      : HN1_Ser_Fil
-    /* -- */    ,   "text/html"       : HN1_Ser_Fil
-    /* -- */    ,   "text/javascript" : HN1_Ser_Fil
-    /* -- */    ,   "SQL_GET_TEST"    : HN2_SQL_Get_Tes
-    /* -- */
-    /* -- */    ,   "SQL_RUN_C"       : HN4_SQL_Run_C
-    /* -- */    ,   "SQL_RUN_R"       : HN4_SQL_Run_R
-    /* -- */    ,   "SQL_RUN_U"       : HN4_SQL_Run_U
-    /* -- */    ,   "SQL_RUN_D"       : HN4_SQL_Run_D
-    /* -- */    };;
-    /* 04 */    act = tab_act[ daw[ 1 ] ];
-    /* 05 */    rar_daw=[rar,daw]; 
-    /* 06 */    act(     rar_daw );
+    tab_daw={  
+        "/K" : [ "./server.js", "text/plain"      ]
+    ,   "/H" : [ "./htm._"    , "text/html"       ]
+    ,   "/J" : [ "./j_s._"    , "text/javascript" ]
+    ,   "/T" : [ "./sql._"    , "SQL_GET_TEST"    ]
+    
+    ,   "/C"      :[ "./SQL/C._"  , "SQL_RUN_C"   ]
+    ,   "/CRUD_C" :[ "./SQL/C._"  , "SQL_RUN_C"   ]
+                                                
+    ,   "/R"      :[ "./SQL/R._"  , "SQL_RUN_R"   ]
+    ,   "/CRUD_R" :[ "./SQL/R._"  , "SQL_RUN_R"   ]
+                                                
+    ,   "/U"      :[ "./SQL/U._"  , "SQL_RUN_U"   ]
+    ,   "/CRUD_U" :[ "./SQL/U._"  , "SQL_RUN_U"   ]
+                                                
+    ,   "/D"      :[ "./SQL/D._"  , "SQL_RUN_D"   ]
+    ,   "/CRUD_D" :[ "./SQL/D._"  , "SQL_RUN_D"   ]
+    
+    };;
+    daw=( tab_daw[ url ] || tab_daw[ "/K" ] );
+    tab_act={ 
+        "text/plain"      : HN1_Ser_Fil
+    ,   "text/html"       : HN1_Ser_Fil
+    ,   "text/javascript" : HN1_Ser_Fil
+    ,   "SQL_GET_TEST"    : HN2_SQL_Get_Tes
+    
+    ,   "SQL_RUN_C"       : HN4_SQL_Run_C
+    ,   "SQL_RUN_R"       : HN4_SQL_Run_R
+    ,   "SQL_RUN_U"       : HN4_SQL_Run_U
+    ,   "SQL_RUN_D"       : HN4_SQL_Run_D
+    };;
+    act = tab_act[ daw[ 1 ] ];
+    rar_daw=[rar,daw]; 
+    act(     rar_daw );
 
 };;
 
