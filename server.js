@@ -69,7 +69,7 @@ const HN5_NEW_sob=function( /** void **/ ){
     return( HN5_sob /** sob **/ );
 };;
 
-const HN5_Err_CTO_Str =function( err ){
+const HN5_err_CTO_str =function( err ){
 
     str = "";
     if(typeof( err ) == "string" ){
@@ -202,7 +202,7 @@ const HN3_Run_cof
 
         err=( ""
         +   "[HN3_Run_cof.cof](((" + sob.cof + ")))"
-        +   "[HN3_E01]:" + inn_err.toString() 
+        +   "[HN3_E01]:" + HN5_err_CTO_str( inn_err )
         );;
         sob.err=( sob.err + err );
 
@@ -260,7 +260,7 @@ const HN3_Run_fas
                     ,       (    ""
                             +    "(" 
                             +    "[HN3_E03]:"
-                            +    HN5_Err_CTO_Str( err )
+                            +    HN5_err_CTO_str( err )
                             +    ")"
                             )
                     );;
@@ -274,7 +274,7 @@ const HN3_Run_fas
             sob.err=( sob.err + err_obj ); //:#FEO#://
             HN5_Wri_002( 
             /**/    sob
-            ,      "[HN3_E02]:"+err_obj.toString()
+            ,      "[HN3_E02]:"+ HN5_err_CTO_str( err_obj )
             );;
 
         }).finally(()=>{
@@ -314,7 +314,11 @@ const HN2_SQL_Get_Tes =function( sob ){ "use strict"
     }).catch((obj_err)=>{
 
         HN5_Wri_002( sob
-        ,   "(" + "[HN2_E01]:" + obj_err.toString() + ")"
+        ,       ""
+                + "(" 
+                + "[HN2_E01]:" 
+                + HN5_err_CTO_str( obj_err ) 
+                + ")"
         );;
 
     }).finally(()=>{
@@ -420,7 +424,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
             rar[1].write( 
                 "(" + "[HN4_ERR:HN4_E01]:" 
-                + obj_err.toString() + ")"
+                + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
@@ -448,7 +452,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
             rar[1].write( 
                 "(" + "[HN4_ERR:HN4_E02]:" 
-                + obj_err.toString() + ")"
+                + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
@@ -474,7 +478,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
             rar[1].write( 
                 "(" + "[HN4_ERR:HN4_E03]:" 
-                + obj_err.toString() + ")"
+                + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
@@ -499,7 +503,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
             rar[1].write( 
                 "(" + "[HN4_ERR:HN4_E04]:" 
-                + obj_err.toString() + ")"
+                + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
