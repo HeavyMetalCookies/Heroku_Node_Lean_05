@@ -494,7 +494,7 @@ const HN2_Rou=function( req , res ){ "use strict"
     sob.wha=( daw[ 1 ] );
 
     //: act: Action to take function.
-    sob.act=( tab_act[ wha ] );
+    sob.act=( tab_act[ sob.wha ] );
 
     //:Call action function:
     sob.act( sob );
