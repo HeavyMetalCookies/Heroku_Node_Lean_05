@@ -442,14 +442,15 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
         }).catch((obj_err)=>{
 
-            rar[1].write( 
+            HN5_Wri_002( sob,
                 "(" + "[HN4_ERR:HN4_E01]:" 
                 + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
 
-            rar[1].end();
+            //:rar[1].end();
+            HN5_End_001( sob );
 
         });;
     };;
