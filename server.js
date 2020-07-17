@@ -122,7 +122,7 @@ const HN5_Wri_sob=function( sob ){ "use strict"
                 
                     var pam =(  any_obj[ str_key ] );
                     for( k_v of Object.entries( pam ) ){
-                        str_val+=( k_v[0] ":" k_v[1] );
+                        str_val+=( k_v[0]+ ":" +k_v[1] );
                         str_val+=( "\n" );
                     };;
                 };;
