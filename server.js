@@ -97,7 +97,11 @@ const HN5_Wri_sob=function( sob ){ "use strict"
         if( undefined == val       ){ val = "[VAL:UND]" };
         if(typeof(val)=="undefined"){ val = "[VAL:TOU]" };
 
-        str_cur =( `${key}:${val}` );
+        //: str_cur =( `${key}:${val}` );
+        var str_key = key.toString( );
+        var str_val = val.toString( );
+            str_cur =( str_key + ":" + str_val );
+
         str_all =( str_all + "\n" + str_cur );
     };;
     //:///////////////////////////////////////////SC[JSODELO]://
