@@ -108,8 +108,13 @@ const HN5_Wri_sob=function( sob ){ "use strict"
             //:TSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTS://
             if( key.toString && val.toString ){
 
-                str_key = key.toString( );
-                str_val = val.toString( );
+                if( typeof(val) == "function" ){
+                    str_key = key.toString( );
+                    str_val = "[FUNC]:" + val.name;
+                }else{
+                    str_key = key.toString( );
+                    str_val = val.toString( );
+                };;
 
             }else
             if( key.toString ){
