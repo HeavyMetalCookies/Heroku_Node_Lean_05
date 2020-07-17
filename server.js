@@ -69,6 +69,31 @@ const HN5_NEW_sob=function( /** void **/ ){
     return( HN5_sob /** sob **/ );
 };;
 
+const HN5_Wri_sob=function( sob ){
+
+    //:///////////////////////////////////////////SC[JSODELO]://
+    var any_obj =( sob ) ;
+    var arr_ent = [] ; //:TopLevelKeyValuePairsNoProto
+    var str_cur = "" ; //:Current_String_Being_Built
+    var str_all = "" ; //:String_Of_Evertyhing
+    var key_val = [] ; //:Current [key,val]
+    var     key =null; //:Current_Key
+    var     val =null; //:Current_Value
+    
+    arr_ent=( Object.entries( any_obj ) );
+    
+    for(           key_val of arr_ent ){
+        key     =( key_val[0] );
+        val     =( key_val[1] );
+        str_cur =( `${key}:${val}` );
+        str_all =( str_all + "\n" + str_cur );
+    };;
+    //:///////////////////////////////////////////SC[JSODELO]://
+    
+    HN5_Wri_002( sob , str_all );
+
+};;
+
 const HN5_err_CTO_str =function( err ){
 
     str = "";
@@ -319,8 +344,8 @@ const HN3_Run_fas
 
 const HN2_SQL_Get_Tes =function( sob ){ "use strict"
 
-    HN3_Run_fas( sob )
-    .then((      sob )=>{
+    HN3_Run_fas( sob /** sob.dat == src_pat **/ )
+    .then((      sob /** sob.___ == cof_ros **/ )=>{
 
         HN5_Wri_002(sob, "[HN3_S01]");
 
@@ -593,6 +618,7 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/D"      :[ "./SQL/D._"  , "SQL_RUN_D"   ]
     ,   "/CRUD_D" :[ "./SQL/D._"  , "SQL_RUN_D"   ]
     
+    ,   "/S"      :[ "IGNORED"    , "HN5_Wri_sob" ]
     };;
     tab_act={ 
         "text/plain"      : HN1_Ser_Fil
@@ -604,6 +630,8 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "SQL_RUN_R"       : HN4_SQL_Run_R
     ,   "SQL_RUN_U"       : HN4_SQL_Run_U
     ,   "SQL_RUN_D"       : HN4_SQL_Run_D
+
+    ,   "HN5_Wri_sob"     : HN5_Wri_sob
     };;
 
     //:rar:Request_And_Response:
