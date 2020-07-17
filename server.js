@@ -116,6 +116,10 @@ const HN5_Wri_sob=function( sob ){ "use strict"
 
                 str_key = key.toString( );
                 str_val = "[UNABLE_TO_PRINT_VALUE]";
+    
+                if( str_key == "pam" ){
+                    console.log("[pam]:" , any_obj[ str_key ] );
+                };;
 
             }else{
                 str_key = "[ERR:STR_KEY]";
