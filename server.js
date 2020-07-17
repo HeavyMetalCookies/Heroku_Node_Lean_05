@@ -62,6 +62,8 @@ const HN5_NEW_sob=function( /** void **/ ){ "use strict"
     ,   cof : null //: \__ cof_ros[0|1]
     ,   ros : null //: /
 
+    ,   pof : null //: --- pof:PathOfFile ==[ dat ]
+
     ,   cli : null //: --- cli:Client
 
     ,   err : null //: --- err:Error.Typically_First_Error
