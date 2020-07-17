@@ -171,7 +171,7 @@ const HN5_Wri_sob_AND_end=function( sob ){ "use strict"
 
 const HN5_err_CTO_str =function( err ){ "use strict"
 
-    str = "";
+    var str = "";
     if(typeof( err ) == "string" ){
         str = err;
     }else
