@@ -367,7 +367,7 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
 const HN5_Pri_sob_ASA_cof_ros=function(
               sob
 ){
-    var cof_ros=(      [ sob.cof , sob.ros ] );
+    var cof_ros=(       [ sob.cof , sob.ros ]);
     var cof    =(cof_ros[    0    ]          );
     var     ros=(cof_ros          [    1    ]);
 
@@ -501,7 +501,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
         //:          [rar_daw,cof_ros]
         //:   );;
 
-            HN5_Wri_002( sob, "[TODO:print_c]" );
+            HN5_Pri_sob_ASA_cof_ros( sob );
 
         }).catch((obj_err)=>{
 
