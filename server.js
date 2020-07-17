@@ -511,29 +511,23 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
         });;
     };;
-    const HN4_SQL_Run_U=function( rar_daw ){ "use strict"
+    const HN4_SQL_Run_U=function( sob ){ "use strict"
 
-        //: rar daw = raw_daw[0|1]
-        var rar     = rar_daw[ 0 ];
-        var     daw = rar_daw[ 1 ];
+        HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
+        .then((      sob /** sob.___ == cof_ros **/ )=>{
 
-        HN3_Run_fas( rar, daw[0] /* src_pat */ )
-        .then(( cof_ros )=>{
-
-            HN4_Pri_rar_daw_cof_ros(
-                   [rar_daw,cof_ros]
-            );;
+            HN5_Pri_sob_ASA_cof_ros( sob );
 
         }).catch((obj_err)=>{
 
-            rar[1].write( 
+            HN5_Wri_002( sob,
                 "(" + "[HN4_ERR:HN4_E03]:" 
                 + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
 
-            rar[1].end();
+            HN5_End_001( sob );
 
         });;
     };;
