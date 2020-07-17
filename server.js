@@ -473,33 +473,8 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
     const HN4_SQL_Run_C=function( sob ){ "use strict"
 
-        HN3_Run_fas( sob /* sob.dat == src_pat */ )
-        .then(( sob )=>{
-
-        //:   var cof_ros=[ sob.cof , sob.ros ];
-        //:
-        //:   if( !cof_ros ){
-        //:       throw("[HN5_E02:cof_ros:_:]");
-        //:   }else
-        //:   if( !cof_ros[0] ){
-        //:       throw("[HN5_E03:cof_ros[0]]");
-        //:   }else
-        //:   if( !cof_ros[1] ){
-        //:       throw("[HN5_E04:cof_ros[1]]");
-        //:   };;
-        //:
-        //:   var rar    =[ sob.req , sob.res ];
-        //:   var daw    =[ sob.dat , sob.wha ];
-        //:
-        //:   var rar_daw=(
-        //:     [ rar,daw ]);;
-        //:
-        //:   var rar_daw_cof_ros=(
-        //:     [ rar_daw,cof_ros ]);;
-        //:
-        //:   HN4_Pri_rar_daw_cof_ros(
-        //:          [rar_daw,cof_ros]
-        //:   );;
+        HN3_Run_fas( sob /** sob.dat == src_pat **/ )
+        .then((      sob /** sob.___ == cof_ros **/ )=>{
 
             HN5_Pri_sob_ASA_cof_ros( sob );
 
@@ -512,36 +487,31 @@ const HN4_Pri_rar_daw_cof_ros=function(
 
         }).finally(()=>{
 
-            //:rar[1].end();
             HN5_End_001( sob );
 
         });;
     };;
-    const HN4_SQL_Run_R=function( 
-        rar_daw 
-    ){ "use strict"
+    const HN4_SQL_Run_R=function( sob ){ "use strict"
 
         //: rar daw = raw_daw[0|1]
         var rar     = rar_daw[ 0 ];
         var     daw = rar_daw[ 1 ];
 
-        HN3_Run_fas( rar, daw[0] /* src_pat */ )
-        .then(( cof_ros )=>{
+        HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
+        .then((      sob /** sob.___ == cof_ros **/ )=>{
 
-            HN4_Pri_rar_daw_cof_ros(
-                   [rar_daw,cof_ros]
-            );;
+            HN5_Pri_sob_ASA_cof_ros( sob );
 
         }).catch((obj_err)=>{
 
-            rar[1].write( 
+            HN5_Wri_002( sob,
                 "(" + "[HN4_ERR:HN4_E02]:" 
                 + HN5_err_CTO_str( obj_err ) + ")"
             );;
 
         }).finally(()=>{
 
-            rar[1].end();
+            HN5_End_001( sob );
 
         });;
     };;
