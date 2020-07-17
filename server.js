@@ -83,6 +83,9 @@ const HN5_Wri_sob=function( sob ){ "use strict"
     var     key =null; //:Current_Key
     var     val =null; //:Current_Value
     
+    var str_key;
+    var str_val;
+
     arr_ent=( Object.entries( any_obj ) );
     
     for(           key_val of arr_ent ){
@@ -98,9 +101,30 @@ const HN5_Wri_sob=function( sob ){ "use strict"
         if(typeof(val)=="undefined"){ val = "[VAL:TOU]" };
 
         //: str_cur =( `${key}:${val}` );
-        var str_key = key.toString( );
-        var str_val = val.toString( );
-            str_cur =( str_key + ":" + str_val );
+
+            //:KV:KeyValue:(BELOW):--------------------------://
+            //:TS:ToSTring:(BELOW):--------------------------://
+            //:KVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKV://
+            //:TSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTS://
+            if( key.toString && val.toString ){
+
+                str_key = key.toString( );
+                str_val = val.toString( );
+
+            }else
+            if( key.toString ){
+
+                str_key = key.toString( );
+                str_val = "[UNABLE_TO_PRINT_VALUE]";
+
+            }else{
+                str_key = "[ERR:STR_KEY]";
+                str_val = "[ERR:STR_VAL]";
+            };;
+            //:TSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTSTS://
+            //:KVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKVKV://
+
+        str_cur =( str_key + ":" + str_val );
 
         str_all =( str_all + "\n" + str_cur );
     };;
