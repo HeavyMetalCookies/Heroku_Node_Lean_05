@@ -115,7 +115,7 @@ const HN5_Wri_sob=function( sob ){ "use strict"
             if( key.toString ){
 
                 str_key = key.toString( );
-                str_val = "[UNABLE_TO_PRINT_VALUE]";
+                str_val = ""; //: "[UNABLE_TO_PRINT_VALUE]";
     
                 if( str_key == "pam" ){
                     console.log("[pam]:" , any_obj[ str_key ] );
@@ -128,6 +128,8 @@ const HN5_Wri_sob=function( sob ){ "use strict"
                         str_val+=( k_v[0]+ ":" +k_v[1] );
                         str_val+=( "\n" );
                     };;
+                }else{
+                    str_key = "[UNABLE_TO_PRINT_VALUE]";
                 };;
 
             }else{
