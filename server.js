@@ -128,7 +128,7 @@ const HN5_Wri_sob=function( sob ){ "use strict"
                     str_val += "\n";
                     for( k_v of Object.entries( pam )  ){
                         str_val+=( tab+( k_v[0]+ ":" +k_v[1] ));
-                        str_val+=( tab+( "\n" )               );
+                        str_val+=(  ""+( "\n" )               );
                     };;
                 }else{
                     str_key = "[UNABLE_TO_PRINT_VALUE]";
