@@ -94,6 +94,13 @@ const HN5_Wri_sob=function( sob ){
 
 };;
 
+const HN5_Wri_sob_AND_end( sob ){
+
+    HN5_Wri_sob( sob );
+    HN5_End_001( sob );
+
+};;
+
 const HN5_err_CTO_str =function( err ){
 
     str = "";
@@ -631,7 +638,7 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "SQL_RUN_U"       : HN4_SQL_Run_U
     ,   "SQL_RUN_D"       : HN4_SQL_Run_D
 
-    ,   "HN5_Wri_sob"     : HN5_Wri_sob
+    ,   "HN5_Wri_sob"     : HN5_Wri_sob_AND_end
     };;
 
     //:rar:Request_And_Response:
