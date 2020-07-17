@@ -296,14 +296,16 @@ const HN3_Run_fas
                 njs_resolver( sob ); //:[cof,ros]
             }else
             if( 2 == ror_boo ){
-                njs_rejector( sob ); //:(obj_err)
+                sob.err =( "[HN5_E01]" + sob.err );
+                njs_rejector( sob.err ); //:(obj_err)
             }else{
                 //:This section should never execute.
                 //:Indicates a programmer logic error.
-                sob.err =( sob.err+
-                    ( "[[HN3_E04]:ror_boo]:"+ror_boo )
+                sob.err =(""
+                +   ( "<[[HN3_E04]:ror_boo]:"+ror_boo+">" )
+                +   ( sob.err                             )
                 );;
-                njs_rejector( sob )
+                njs_rejector( sob.err )
             };;
 
         });;
@@ -420,13 +422,9 @@ const HN4_Pri_rar_daw_cof_ros=function(
 //:C:Crud:Crud_Operations_That_Can_Be_Invoked_From_Route:----://
 //:CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC://
 
-    const HN4_SQL_Run_C=function( rar_daw ){ "use strict"
+    const HN4_SQL_Run_C=function( sob ){ "use strict"
 
-        //: rar daw = raw_daw[0|1]
-        var rar     = rar_daw[ 0 ];
-        var     daw = rar_daw[ 1 ];
-
-        HN3_Run_fas( rar, daw[0] /* src_pat */ )
+        HN3_Run_fas( sob /* sob.dat == src_pat */ )
         .then(( cof_ros )=>{
 
             HN4_Pri_rar_daw_cof_ros(
@@ -522,6 +520,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
         }).finally(()=>{
 
             rar[1].end();
+        
 
         });;
 
