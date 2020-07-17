@@ -363,6 +363,55 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
     });;
 };;
 
+//:Print[ sob ]As_A[ cof_ros ]
+const HN5_Pri_sob_ASA_cof_ros=function(
+              sob
+){
+    var cof_ros=(      [ sob.cof , sob.ros ];
+    var cof    =cof_ros[    0    ]          ;
+    var     ros=cof_ros          [    1    ];
+
+    if( ros.rows  && (ros.rows.length > 0 ) ){
+
+        var len = ros.rows.length;
+        for( var i = 0; i < len; i++ ){
+            
+            var obj_ent=( Object.entries( ros.rows[ i ] ) );
+
+            for( const [key,val] of obj_ent ){
+        
+                HN5_Wri_002(sob, `${key}:${val}`);
+                HN5_Wri_002(sob, "\n"           );
+        
+            };;
+            HN5_Wri_002(sob, "\n\n");
+        
+        };;
+    }else
+    if( ros.rows && (ros.rows.length <= 0 ) ){
+
+        HN5_Wri_002(sob, "[ROWS_OBJECT_IS_EMPTY_ARRAY]\n");
+
+    }else
+    if(!ros.rows ){
+        
+        HN5_Wri_002(sob, "[ROWS_OBJECT_DOES_NOT_EXIST]\n");
+
+    }else{
+        
+        HN5_Wri_002(sob, "[EDCL:2020_07_14]");
+
+    };;
+
+    HN5_Wri_002(sob, ""
+    +   "[cof](((" + "\n"
+    +     cof      + "\n"
+    +   ")))"      + "\n"
+    );;
+
+};;
+
+//:TODO: Remove this function. Replace with:
 const HN4_Pri_rar_daw_cof_ros=function(
               rar_daw_cof_ros
 ){ "use strict"
