@@ -493,10 +493,6 @@ const HN4_Pri_rar_daw_cof_ros=function(
     };;
     const HN4_SQL_Run_R=function( sob ){ "use strict"
 
-        //: rar daw = raw_daw[0|1]
-        var rar     = rar_daw[ 0 ];
-        var     daw = rar_daw[ 1 ];
-
         HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
         .then((      sob /** sob.___ == cof_ros **/ )=>{
 
