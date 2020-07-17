@@ -225,28 +225,28 @@ const HN5_err_CTO_str =function( err ){ "use strict"
     return( str );
 };;
 
-const HN5_End_001 =function( sob ){
+const HN5_End_001 =function( sob ){ "use strict"
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:001]"); };
     sob.res.end( );
 
 };;
-const HN5_End_002 =function( sob , str ){
+const HN5_End_002 =function( sob , str ){ "use strict"
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:002]"); };
     sob.res.end( str );
 
 };;
-const HN5_End_003 =function( sob , cof , enc ){
+const HN5_End_003 =function( sob , cof , enc ){ "use strict"
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:003]"); };
     sob.res.end( cof, "utf-8" );
 
 };;
-const HN5_Wri_002 =function( sob, str ){
+const HN5_Wri_002 =function( sob, str ){ "use strict"
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:004]"); };
     sob.res.write( str );
 
 };;
 
-const HN5_Wri_Hea_200 =function( sob , cto ){
+const HN5_Wri_Hea_200 =function( sob , cto ){ "use strict"
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:005]"); };
 
     //:cto: content_type_object
@@ -254,7 +254,7 @@ const HN5_Wri_Hea_200 =function( sob , cto ){
 
 };;
 
-const HN2_Get_fas =function( src_pat ){
+const HN2_Get_fas =function( src_pat ){ "use strict"
 
     const hn2_executor=( njs_resolver , njs_rejector )=>{
 
