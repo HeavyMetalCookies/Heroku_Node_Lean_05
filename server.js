@@ -63,10 +63,16 @@ const HN5_NEW_sob=function( /** void **/ ){ "use strict"
     ,   cof : null //: \__ cof_ros[0|1]
     ,   ros : null //: /
 
+    ,   cli : null //: --- cli:Client
+
     ,   err : null //: --- err:Error.Typically_First_Error
 
     };;Object.seal( HN5_sob     );
     return( HN5_sob /** sob **/ );
+};;
+
+const HN05_Cli_End=function( sob ){ "use strict" 
+    sob.cli.end();
 };;
 
 const HN5_Wri_sob=function( sob ){ "use strict"
@@ -303,6 +309,7 @@ const HN3_Run_cof
     try{
 
         cli = new pg.Client( obj_cin );
+        sob.cli=( cli );
 
         await cli.connect();
         await cli.query("BEGIN" );
@@ -325,7 +332,7 @@ const HN3_Run_cof
     }finally{
 
         //:Do_NOT_await_here__Will_hang_server.
-        cli.end(); 
+        HN05_Cli_End( sob /** cli **/ ); 
 
     };;
 
