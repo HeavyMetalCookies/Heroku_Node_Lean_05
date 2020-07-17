@@ -425,7 +425,9 @@ const HN4_Pri_rar_daw_cof_ros=function(
     const HN4_SQL_Run_C=function( sob ){ "use strict"
 
         HN3_Run_fas( sob /* sob.dat == src_pat */ )
-        .then(( cof_ros )=>{
+        .then(( sob )=>{
+
+            var cof_ros=[ sob.cof , sob.ros ];
 
             if( !cof_ros ){
                 throw("[HN5_E02:cof_ros:_:]");
@@ -842,5 +844,8 @@ HN1_Mai();
 const A=(B)=>{...}: function "A" taking param "B"
 rejectUnauthorized: Worry about verifying server identity?
            HN5_E01: HerokuNode(lean)[ #5 ] : Error[ #1 ]
+           HN5_E02: HerokuNode(lean)[ #5 ] : Error[ #2 ]
+           HN5_E03: HerokuNode(lean)[ #5 ] : Error[ #3 ]
+           HN5_E04: HerokuNode(lean)[ #5 ] : Error[ #4 ]
 
 **-*********************************************************-**/
