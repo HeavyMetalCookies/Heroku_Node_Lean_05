@@ -18,7 +18,6 @@
     //: HN3_Run_cof             : Run_contents_of_file
     //: HN3_Run_fas             : Run_file_as_string
 
-    //: HN4_Pri_rar_daw_cof_ros : Prints[ rar_daw_cof_ros ]
     //: HN4_SQL_Run_C           : Run CREATE sql code.
     //: HN4_SQL_Run_D           : Run DELETE sql code.
     //: HN4_SQL_Run_R           : Run READ   sql code.
@@ -260,7 +259,9 @@ const HN5_Wri_Hea_200 =function( sob , cto ){ "use strict"
 
 };;
 
-const HN2_Get_fas =function( src_pat ){ "use strict"
+const HN2_Get_fas =function( sob ){ "use strict"
+
+    var src_pat=( sob.pof /** pof:Path_Of_File **/ );
 
     const hn2_executor=( njs_resolver , njs_rejector )=>{
 
@@ -346,14 +347,18 @@ const HN3_Run_fas
     const hn3_executor=( njs_resolver , njs_rejector )=>{
 
         var ror_boo =( 0 ); //:1:Resolve, 2:Reject
-        var src_pat =( sob.dat );
-        if( (!src_pat)||(!sob.dat)){ 
+
+ 
+        if( (!sob.dat) ){
             throw("[HN5_NO_SOB_DAT]");
+        }else
+        if( (!sob.pof) ){
+            throw("[HN5_NO_SOB_POF]");
         }else{
             console.log("[DEBUG:src_pat]:", src_pat );
         };;
 
-        HN2_Get_fas( src_pat )
+        HN2_Get_fas( sob /** sob.pof : Path_Of_File **/ )
        .then(( cof )=>{
 
             ror_boo=( 0-2 );
@@ -427,6 +432,7 @@ const HN3_Run_fas
 
 const HN2_SQL_Get_Tes =function( sob ){ "use strict"
 
+    sob.pof=( sob.dat );
     HN3_Run_fas( sob /** sob.dat == src_pat **/ )
     .then((      sob /** sob.___ == cof_ros **/ )=>{
 
@@ -531,6 +537,7 @@ const HN5_Pri_sob_ASA_cof_ros=function(
 
     const HN4_SQL_Run_C=function( sob ){ "use strict"
 
+        sob.pof=( sob.dat );
         HN3_Run_fas( sob /** sob.dat == src_pat **/ )
         .then((      sob /** sob.___ == cof_ros **/ )=>{
 
@@ -549,6 +556,7 @@ const HN5_Pri_sob_ASA_cof_ros=function(
     };;
     const HN4_SQL_Run_R=function( sob ){ "use strict"
 
+        sob.pof=( sob.dat );
         HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
         .then((      sob /** sob.___ == cof_ros **/ )=>{
 
@@ -567,6 +575,7 @@ const HN5_Pri_sob_ASA_cof_ros=function(
     };;
     const HN4_SQL_Run_U=function( sob ){ "use strict"
 
+        sob.pof=( sob.dat );
         HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
         .then((      sob /** sob.___ == cof_ros **/ )=>{
 
@@ -585,6 +594,7 @@ const HN5_Pri_sob_ASA_cof_ros=function(
     };;
     const HN4_SQL_Run_D=function( sob ){ "use strict"
 
+        sob.pof=( sob.dat );
         HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
         .then((      sob /** sob.___ == cof_ros **/ )=>{
 
@@ -876,13 +886,10 @@ HN1_Mai();
       hn3_executor: Private executor func with HN3 namespace.
       njs_rejector: Rejector function built into NodeJS
       njs_resolver: Resolver function built into NodeJS
-     Default__Path: Default path if browser url is invalid
-     HN4_Pri_rar_daw_cof_ros :: Prints rar_daw_cof_ros
      HN4_SQL_Run_C: Action to run CREATE sql command.
      HN4_SQL_Run_D: Action to run DELETE sql command.
      HN4_SQL_Run_R: Action to run READ   sql command.
      HN4_SQL_Run_U: Action to run UPDATE sql command.
-     Selected_Path: Path selected in browser url
     "Content-Type": Key denoting the MIME type of payload.
     "SQL_GET_TEST": Action to perform is SQL GET TEST.
     "WINDOW_ALERT": Placeholder string.
