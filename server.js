@@ -696,7 +696,7 @@ const HN2_Rou=function( req , res ){ "use strict"
     sob.res =( res     ); //:rar[ 1 ]
     
     //:rap:Relativeurl_And_Parameters_of_query
-    sob.url =(          req.url              ); //:rap[ 0 ]
+    sob.url =URL.parse( req.url , true ).pathname //:rap[ 0 ]
     sob.pam =URL.parse( req.url , true ).query; //:rap[ 1 ]
     
     //: daw: Data_And_Whatever
