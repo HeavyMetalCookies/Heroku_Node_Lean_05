@@ -89,8 +89,8 @@ const HN5_Wri_sob=function( sob ){ "use strict"
         key     =( key_val[0] );
         val     =( key_val[1] );
 
-        if( null      == key ){ val = "[KEY:NIL]" };
-        if( undefined == key ){ val = "[KEY:UND]" };
+        if( null      == key ){ key = "[KEY:NIL]" };
+        if( undefined == key ){ key = "[KEY:UND]" };
 
         if( null      == val ){ val = "[VAL:NIL]" };
         if( undefined == val ){ val = "[VAL:UND]" };
