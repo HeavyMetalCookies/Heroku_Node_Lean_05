@@ -110,7 +110,7 @@ const HN5_Wri_sob=function( sob ){ "use strict"
 
                 if( typeof(val) == "function" ){
                     str_key = key.toString( );
-                    str_val = "[FUNC]:" + val.name;
+                    str_val = "[FUNC]:(" + val.name + ")";
                 }else{
                     str_key = key.toString( );
                     str_val = val.toString( );
