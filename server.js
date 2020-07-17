@@ -71,7 +71,7 @@ const HN5_NEW_sob=function( /** void **/ ){ "use strict"
     return( HN5_sob /** sob **/ );
 };;
 
-const HN05_Cli_End=function( sob ){ "use strict" 
+const HN5_Cli_End=function( sob ){ "use strict" 
     sob.cli.end();
 };;
 
@@ -332,7 +332,7 @@ const HN3_Run_cof
     }finally{
 
         //:Do_NOT_await_here__Will_hang_server.
-        HN05_Cli_End( sob /** cli **/ ); 
+        HN5_Cli_End( sob /** cli **/ ); 
 
     };;
 
