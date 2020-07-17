@@ -525,7 +525,7 @@ const HN4_Pri_rar_daw_cof_ros=function(
             HN5_End_001( sob );
         });;
     };;
-    const HN4_SQL_Run_D=function( rar_daw ){ "use strict"
+    const HN4_SQL_Run_D=function( sob ){ "use strict"
 
         HN3_Run_fas( sob /** sbo.dat == src_pat **/ )
         .then((      sob /** sob.___ == cof_ros **/ )=>{
