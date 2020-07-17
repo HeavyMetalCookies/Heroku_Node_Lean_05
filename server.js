@@ -100,7 +100,8 @@ const HN5_Wri_sob=function( sob ){ "use strict"
         if( undefined == val       ){ val = "[VAL:UND]" };
         if(typeof(val)=="undefined"){ val = "[VAL:TOU]" };
 
-        //: str_cur =( `${key}:${val}` );
+            //: simple_solution_will_fail_on_certain_values:
+            //: DO_NOT_USE[ str_cur =( `${key}:${val}` ); ]
 
             //:KV:KeyValue:(BELOW):--------------------------://
             //:TS:ToSTring:(BELOW):--------------------------://
@@ -128,12 +129,17 @@ const HN5_Wri_sob=function( sob ){ "use strict"
                     var pam;
                     var k_v;
                     var tab=("    ");
+                    var nir=( 0 ); //:Num_Iterations_Ran
 
                     pam =(  any_obj[ str_key ] );
                     str_val += "\n";
                     for( k_v of Object.entries( pam )  ){
                         str_val+=( tab+( k_v[0]+ ":" +k_v[1] ));
                         str_val+=(  ""+( "\n" )               );
+                        nir++;
+                    };;
+                    if( 0 == nir ){
+                        str_val="{EMPTY_OBJECT}";
                     };;
                 }else{
                     str_key = "[UNABLE_TO_PRINT_VALUE]";
