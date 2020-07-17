@@ -357,6 +357,7 @@ const HN3_Run_fas
         if( (!sob.pof) ){
             throw("[HN5_NO_SOB_POF]");
         }else{
+            var src_pat=( sob.pof );
             console.log("[DEBUG:src_pat]:", src_pat );
         };;
 
