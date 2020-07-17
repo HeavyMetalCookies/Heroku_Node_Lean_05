@@ -71,6 +71,9 @@ const HN5_NEW_sob=function( /** void **/ ){
 
 const HN5_Wri_sob=function( sob ){ "use strict"
 
+    if(!sob                ){ throw("[HN5_E08:NOT_SOB]"); };
+    if( sob.vit != SOB_VIT ){ throw("[HN5_E09:SOB_VIT]"); };
+
     //:///////////////////////////////////////////SC[JSODELO]://
     var any_obj =( sob ) ;
     var arr_ent = [] ; //:TopLevelKeyValuePairsNoProto
@@ -85,6 +88,13 @@ const HN5_Wri_sob=function( sob ){ "use strict"
     for(           key_val of arr_ent ){
         key     =( key_val[0] );
         val     =( key_val[1] );
+
+        if( null      == key ){ val = "[KEY:NIL]" };
+        if( undefined == key ){ val = "[KEY:UND]" };
+
+        if( null      == val ){ val = "[VAL:NIL]" };
+        if( undefined == val ){ val = "[VAL:UND]" };
+
         str_cur =( `${key}:${val}` );
         str_all =( str_all + "\n" + str_cur );
     };;
@@ -885,6 +895,8 @@ rejectUnauthorized: Worry about verifying server identity?
            HN5_E05: HerokuNode(lean)[ #5 ] : Error[ #5 ]
            HN5_E06: HerokuNode(lean)[ #5 ] : Error[ #6 ]
            HN5_E07: HerokuNode(lean)[ #5 ] : Error[ #7 ]
+           HN5_E08: HerokuNode(lean)[ #5 ] : Error[ #8 ]
+           HN5_E09: HerokuNode(lean)[ #5 ] : Error[ #9 ]
                NFO: Not_Filled_Out
             
 **-*********************************************************-**/
