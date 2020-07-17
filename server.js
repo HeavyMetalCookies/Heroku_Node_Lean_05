@@ -476,30 +476,32 @@ const HN4_Pri_rar_daw_cof_ros=function(
         HN3_Run_fas( sob /* sob.dat == src_pat */ )
         .then(( sob )=>{
 
-            var cof_ros=[ sob.cof , sob.ros ];
+        //:   var cof_ros=[ sob.cof , sob.ros ];
+        //:
+        //:   if( !cof_ros ){
+        //:       throw("[HN5_E02:cof_ros:_:]");
+        //:   }else
+        //:   if( !cof_ros[0] ){
+        //:       throw("[HN5_E03:cof_ros[0]]");
+        //:   }else
+        //:   if( !cof_ros[1] ){
+        //:       throw("[HN5_E04:cof_ros[1]]");
+        //:   };;
+        //:
+        //:   var rar    =[ sob.req , sob.res ];
+        //:   var daw    =[ sob.dat , sob.wha ];
+        //:
+        //:   var rar_daw=(
+        //:     [ rar,daw ]);;
+        //:
+        //:   var rar_daw_cof_ros=(
+        //:     [ rar_daw,cof_ros ]);;
+        //:
+        //:   HN4_Pri_rar_daw_cof_ros(
+        //:          [rar_daw,cof_ros]
+        //:   );;
 
-            if( !cof_ros ){
-                throw("[HN5_E02:cof_ros:_:]");
-            }else
-            if( !cof_ros[0] ){
-                throw("[HN5_E03:cof_ros[0]]");
-            }else
-            if( !cof_ros[1] ){
-                throw("[HN5_E04:cof_ros[1]]");
-            };;
-
-            var rar    =[ sob.req , sob.res ];
-            var daw    =[ sob.dat , sob.wha ];
-
-            var rar_daw=(
-              [ rar,daw ]);;
-
-            var rar_daw_cof_ros=(
-              [ rar_daw,cof_ros ]);;
-
-            HN4_Pri_rar_daw_cof_ros(
-                   [rar_daw,cof_ros]
-            );;
+            HN5_Wri_002( sob, "[TODO:print_c]" );
 
         }).catch((obj_err)=>{
 
