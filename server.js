@@ -235,7 +235,6 @@ const HN3_Run_cof
 const HN3_Run_fas 
 =function( sob ){ "use strict"
 
-
     const hn3_executor=( njs_resolver , njs_rejector )=>{
 
         var ror_boo =( 0 ); //:1:Resolve, 2:Reject
@@ -256,7 +255,6 @@ const HN3_Run_fas
             //:BREAK THE PROMISE CHAIN!        //:///////////://    
             return( //://////////////////////////////////////://
                     
-            
                 HN3_Run_cof( sob /** sob.cof **/ )
                 .then((      sob /** sob.ros **/ )=>{
             
@@ -322,10 +320,7 @@ const HN3_Run_fas
 const HN2_SQL_Get_Tes =function( sob ){ "use strict"
 
     HN3_Run_fas( sob )
-    .then(( cof_ros )=>{
-
-        sob.cof = cof_ros[ 0 ]; //:Contents_Of_File
-        sob.ros = cof_ros[ 1 ]; //:Query____Results
+    .then((      sob )=>{
 
         HN5_Wri_002(sob, "[HN3_S01]");
 
