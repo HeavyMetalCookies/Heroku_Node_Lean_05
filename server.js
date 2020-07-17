@@ -45,7 +45,7 @@
 
 //://////////////////////////////////////////////////////////://
 
-const HN5_NEW_sob=function( /** void **/ ){
+const HN5_NEW_sob=function( /** void **/ ){ "use strict"
     const HN5_sob={
         vit : SOB_VIT //: Variable_Integer_Tag
 
@@ -258,7 +258,8 @@ const HN2_Get_fas =function( src_pat ){ "use strict"
 
     const hn2_executor=( njs_resolver , njs_rejector )=>{
 
-        fs.readFile( src_pat,function(obj_err, cof ){
+        fs.readFile( src_pat,function(obj_err, cof ){ 
+        "use strict"
             if( obj_err ){
 
                 console.log(
@@ -446,6 +447,7 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
     var pof=( sob.dat ); //:pof[ path_of_file (fil_pat) ]
     
     fs.readFile( pof,function(obj_err, cof ){
+    "use strict"
 
         if(obj_err){
 
@@ -464,7 +466,8 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
 //:Print[ sob ]As_A[ cof_ros ]
 const HN5_Pri_sob_ASA_cof_ros=function(
               sob
-){
+){ "use strict"
+
     var cof_ros=(       [ sob.cof , sob.ros ]);
     var cof    =(cof_ros[    0    ]          );
     var     ros=(cof_ros          [    1    ]);
