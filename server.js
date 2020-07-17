@@ -518,62 +518,6 @@ const HN5_Pri_sob_ASA_cof_ros=function(
 
 };;
 
-//:TODO: Remove this function. Replace with:
-const HN4_Pri_rar_daw_cof_ros=function(
-              rar_daw_cof_ros
-){ "use strict"
-
-    //:Unpack Data:
-    //://////////////////////////////////////////////////////://
-    var rar_daw = rar_daw_cof_ros[ 0 ];
-    var cof_ros = rar_daw_cof_ros[ 1 ];
-
-    var rar = rar_daw[ 0 ];
-    var daw = rar_daw[ 1 ];
-
-    var cof = cof_ros[ 0 ];
-    var ros = cof_ros[ 1 ];
-    //://////////////////////////////////////////////////////://
-
-    if( ros.rows  && (ros.rows.length > 0 ) ){
-
-        var len = ros.rows.length;
-        for( var i = 0; i < len; i++ ){
-            
-            var obj_ent=( Object.entries( ros.rows[ i ] ) );
-
-            for( const [key,val] of obj_ent ){
-        
-                rar[1].write(`${key}:${val}`);
-                rar[1].write("\n");
-        
-            };;
-            rar[1].write("\n\n");
-        
-        };;
-    }else
-    if( ros.rows && (ros.rows.length <= 0 ) ){
-
-        rar[1].write("[ROWS_OBJECT_IS_EMPTY_ARRAY]\n");
-
-    }else
-    if(!ros.rows ){
-        
-        rar[1].write("[ROWS_OBJECT_DOES_NOT_EXIST]\n");
-
-    }else{
-        
-        rar[1].write("[EDCL:2020_07_14]");
-
-    };;
-
-    rar[1].write( ""
-    +   "[cof](((" + "\n"
-    +     cof      + "\n"
-    +   ")))"      + "\n"
-    );;
-
-};;
 
 //:C:Crud:Crud_Operations_That_Can_Be_Invoked_From_Route:----://
 //:CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC://
