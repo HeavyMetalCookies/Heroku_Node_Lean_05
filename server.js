@@ -59,10 +59,9 @@ const HN5_NEW_sob=function( /** void **/ ){ "use strict"
 
     ,   act : null //: --- act:Action(Function)
 
+    ,   pof : null //: --- pof:PathOfFile ==[ dat ]
     ,   cof : null //: \__ cof_ros[0|1]
     ,   ros : null //: /
-
-    ,   pof : null //: --- pof:PathOfFile ==[ dat ]
 
     ,   cli : null //: --- cli:Client
 
@@ -287,7 +286,8 @@ const HN2_Get_fas =function( sob ){ "use strict"
                     "[DEBUG:HN2_Get_fas:RESOLVE:cof]:"
                 +                               cof );;
 
-                njs_resolver( cof );
+                sob.cof=(     cof                 );
+                njs_resolver( sob /** sob.cof **/ );
 
             };;
         });;
@@ -362,10 +362,10 @@ const HN3_Run_fas
         };;
 
         HN2_Get_fas( sob /** sob.pof : Path_Of_File **/ )
-       .then(( cof )=>{
+       .then(( sob )=>{
 
-            ror_boo=( 0-2 );
-            sob.cof=( cof );
+            ror_boo=(   0-2   );
+            sob.cof=( sob.cof );
             
             //:RETURN ANOTHE PROMISE, DO NOT   //:///////////://
             //:BREAK THE PROMISE CHAIN!        //:///////////://    
