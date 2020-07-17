@@ -367,9 +367,9 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
 const HN5_Pri_sob_ASA_cof_ros=function(
               sob
 ){
-    var cof_ros=(      [ sob.cof , sob.ros ];
-    var cof    =cof_ros[    0    ]          ;
-    var     ros=cof_ros          [    1    ];
+    var cof_ros=(      [ sob.cof , sob.ros ] );
+    var cof    =(cof_ros[    0    ]          );
+    var     ros=(cof_ros          [    1    ]);
 
     if( ros.rows  && (ros.rows.length > 0 ) ){
 

@@ -1,0 +1,23 @@
+
+NOTE: 2020_07_17:
+
+    If we are just passing around "sob" as a single parameter
+    to every function, it is easy to remember what parameters
+    all functions take. But how do we remember what parts of
+    "sob" are used?
+
+        Idea   : Function name declares what part.
+        Example: HN5_Pri_sob_ASA_cof_ros
+
+        Means "Print sob" "as a" cof_ros ( [sob.cof,sob.ros] )
+
+        For consistency, we can avoid things like:
+
+            HN5_Pri_sob_USING_cof_ros
+            HN5_ActionToPerform_sob_USING_cof_ros
+            HN5_ActionToPerform_sob_MEMBERS_cof_ros
+
+        The ASA "as a" can also be thought of as synonymous 
+        with "using" or "members".
+
+        See where this experiment leads us.
