@@ -69,7 +69,7 @@ const HN5_NEW_sob=function( /** void **/ ){
     return( HN5_sob /** sob **/ );
 };;
 
-const HN5_Wri_sob=function( sob ){
+const HN5_Wri_sob=function( sob ){ "use strict"
 
     //:///////////////////////////////////////////SC[JSODELO]://
     var any_obj =( sob ) ;
@@ -94,14 +94,14 @@ const HN5_Wri_sob=function( sob ){
 
 };;
 
-const HN5_Wri_sob_AND_end( sob ){
+const HN5_Wri_sob_AND_end=function( sob ){ "use strict"
 
     HN5_Wri_sob( sob );
     HN5_End_001( sob );
 
 };;
 
-const HN5_err_CTO_str =function( err ){
+const HN5_err_CTO_str =function( err ){ "use strict"
 
     str = "";
     if(typeof( err ) == "string" ){
