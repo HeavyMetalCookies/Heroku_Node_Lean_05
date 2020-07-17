@@ -427,6 +427,15 @@ const HN4_Pri_rar_daw_cof_ros=function(
         HN3_Run_fas( sob /* sob.dat == src_pat */ )
         .then(( cof_ros )=>{
 
+            var rar    =[ sob.req , sob.res ];
+            var daw    =[ sob.dat , sob.wha ];
+
+            var rar_daw=(
+              [ rar,daw ]);;
+
+            var rar_daw_cof_ros=(
+              [ rar_daw,cof_ros ]);;
+
             HN4_Pri_rar_daw_cof_ros(
                    [rar_daw,cof_ros]
             );;
@@ -821,5 +830,6 @@ HN1_Mai();
 "ROWS_OBJECT_IS_EMPTY_ARRAY" :: Helpful info for example code.
 const A=(B)=>{...}: function "A" taking param "B"
 rejectUnauthorized: Worry about verifying server identity?
+           HN5_E01: HerokuNode(lean)[ #5 ] : Error[ #1 ]
 
 **-*********************************************************-**/
