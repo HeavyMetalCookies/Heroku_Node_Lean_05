@@ -371,6 +371,12 @@ const HN5_Pri_sob_ASA_cof_ros=function(
     var cof    =(cof_ros[    0    ]          );
     var     ros=(cof_ros          [    1    ]);
 
+    if( !cof ){
+        HN5_Wri_002(sob, "[HN5_E05:Missing:cof]" );
+    }else
+    if( !ros ){
+        HN5_Wri_002(sob, "[HN5_E06:Missing:ros]" );
+    }else
     if( ros.rows  && (ros.rows.length > 0 ) ){
 
         var len = ros.rows.length;
@@ -843,5 +849,7 @@ rejectUnauthorized: Worry about verifying server identity?
            HN5_E02: HerokuNode(lean)[ #5 ] : Error[ #2 ]
            HN5_E03: HerokuNode(lean)[ #5 ] : Error[ #3 ]
            HN5_E04: HerokuNode(lean)[ #5 ] : Error[ #4 ]
+           HN5_E05: HerokuNode(lean)[ #5 ] : Error[ #5 ]
+           HN5_E06: HerokuNode(lean)[ #5 ] : Error[ #6 ]
 
 **-*********************************************************-**/
