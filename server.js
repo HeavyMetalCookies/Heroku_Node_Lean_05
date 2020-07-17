@@ -122,11 +122,13 @@ const HN5_Wri_sob=function( sob ){ "use strict"
                 
                     var pam;
                     var k_v;
+                    var tab=("    ");
 
                     pam =(  any_obj[ str_key ] );
+                    str_val += "\n";
                     for( k_v of Object.entries( pam )  ){
-                        str_val+=( k_v[0]+ ":" +k_v[1] );
-                        str_val+=( "\n" );
+                        str_val+=( tab+( k_v[0]+ ":" +k_v[1] ));
+                        str_val+=( tab+( "\n" )               );
                     };;
                 }else{
                     str_key = "[UNABLE_TO_PRINT_VALUE]";
