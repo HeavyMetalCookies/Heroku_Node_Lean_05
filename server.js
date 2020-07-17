@@ -86,8 +86,8 @@ const HN5_err_CTO_str =function( err ){
             str = "[SOB_PASSED_AS_ERROR_OBJECT]";
         }else
         if( 
-            err.hasOwnProperty("toString") 
-            //err.toString != Object.prototype.toString
+            //:FAILS[ err.hasOwnProperty("toString") ]
+            err.toString != Object.prototype.toString
         ){
 
             //:Iterating through "Object.entries" can give
