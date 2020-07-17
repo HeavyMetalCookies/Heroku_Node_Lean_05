@@ -257,11 +257,14 @@ const HN3_Run_fas
             return( //://////////////////////////////////////://
                     
             
-                HN3_Run_cof( sob )
-                .then(( ros )=>{
+                HN3_Run_cof( sob /** sob.cof **/ )
+                .then((      sob /** sob.ros **/ )=>{
             
                     //:Successful execution of query
-                    sob.ros=( ros );
+                    if( !sob.ros ){
+                        throw("[HN5_E07:sob.ros:NFO]");
+                    };;
+
                     ror_boo=(  1  );
             
                 }).catch((err)=>{
@@ -851,5 +854,7 @@ rejectUnauthorized: Worry about verifying server identity?
            HN5_E04: HerokuNode(lean)[ #5 ] : Error[ #4 ]
            HN5_E05: HerokuNode(lean)[ #5 ] : Error[ #5 ]
            HN5_E06: HerokuNode(lean)[ #5 ] : Error[ #6 ]
-
+           HN5_E07: HerokuNode(lean)[ #5 ] : Error[ #7 ]
+               NFO: Not_Filled_Out
+            
 **-*********************************************************-**/
