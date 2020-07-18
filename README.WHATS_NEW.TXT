@@ -1,16 +1,16 @@
 
     //://////////////////////////////////////////////////////://
 
-            HN4 == HN3 + NEW_FUNCTIONALITY_IN_HN4:
+            HN5 == HN4 + NEW_FUNCTIONALITY_IN_HN5:
 
     //://////////////////////////////////////////////////////://
 
-        NEW_FUNCTIONALITY_IN_HN4:
+        NEW_FUNCTIONALITY_IN_HN5:
 
-            1.  SQL CRUD servers.
-                1.1: /CRUD_C   :Create : table if not exist
-                1.2: /CRUD_R   :Read   : all    table entry(s)
-                1.3: /CRUD_U   :Update : adds   table entry
-                1.4: /CRUD_D   :Delete : delete table entry
+            1.  Refactored to be more procedural.
+               (Avoiding method calls by wrapping them.)
+
+            2.  Most function signatures just pass around
+                state_object_bundle (sob).
 
     //://////////////////////////////////////////////////////://

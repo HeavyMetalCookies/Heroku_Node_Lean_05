@@ -35,7 +35,6 @@
     //: HN5_Wri_Hea_200         : Write head with 200 OK
     //: HN5_Pri_sob_ASA_cof_ros : Print sob's .cof & .ros
 
-
 //:IMPORTS:
 
     const  D_U = process.env.DATABASE_URL ;          
