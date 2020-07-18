@@ -23,6 +23,19 @@
     //: HN4_SQL_Run_R           : Run READ   sql code.
     //: HN4_SQL_Run_U           : Run UPDATE sql code.
 
+    //: HN5_NEW_sob             : Create new sob
+    //: HN5_Cli_End             : end client connection
+    //: HN5_Wri_sob             : Write sob contents
+    //: HN5_Wri_sob_AND_end     : Write sob and end response
+    //: HN5_err_CTO_str         : ERRor ConvertTO STRing
+    //: HN5_End_001             : End response, 1 param
+    //: HN5_End_002             : End response, 2 param
+    //: HN5_End_003             : End response, 3 param
+    //: HN5_Wri_002             : Write response, 2 param
+    //: HN5_Wri_Hea_200         : Write head with 200 OK
+    //: HN5_Pri_sob_ASA_cof_ros : Print sob's .cof & .ros
+
+
 //:IMPORTS:
 
     const  D_U = process.env.DATABASE_URL ;          
