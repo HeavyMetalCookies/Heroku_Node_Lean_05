@@ -1,5 +1,4 @@
-
-NOTE: 2020_07_17:
+NOTE: 2020_07_17: SOB (state_object_bundle)
 
     If we are just passing around "sob" as a single parameter
     to every function, it is easy to remember what parameters
