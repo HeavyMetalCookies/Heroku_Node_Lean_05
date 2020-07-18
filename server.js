@@ -252,11 +252,11 @@ const HN5_Wri_002 =function( sob, str ){ "use strict"
 
 };;
 
-const HN5_Wri_Hea_200 =function( sob , cto ){ "use strict"
+const HN5_Wri_Hea_200 =function( sob , cot ){ "use strict"
     if( sob.vit != SOB_VIT ){ throw("[SOB_VIT:005]"); };
 
-    //:cto: content_type_object
-    sob.res.writeHead(200, cto);
+    //:cot: COntent_Type (object)
+    sob.res.writeHead(200, cot);
 
 };;
 
@@ -398,13 +398,13 @@ const HN3_Run_fas
                 })
             );; //://////////////////////////////////////////://
 
-        }).catch(( err_obj )=>{
+        }).catch(( obj_err )=>{
 
             ror_boo=(    2    );
-            sob.err=( sob.err + err_obj ); //:#FEO#://
+            sob.err=( sob.err + obj_err ); //:#FEO#://
             HN5_Wri_002( 
             /**/    sob
-            ,      "[HN3_E02]:"+ HN5_err_CTO_str( err_obj )
+            ,      "[HN3_E02]:"+ HN5_err_CTO_str( obj_err )
             );;
 
         }).finally(()=>{
@@ -479,7 +479,6 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
     });;
 };;
 
-//:Print[ sob ]As_A[ cof_ros ]
 const HN5_Pri_sob_ASA_cof_ros=function(
               sob
 ){ "use strict"
@@ -722,6 +721,7 @@ HN1_Mai();
                  :: Colon character, used for {key:value}
                  ;: End a single-line statement
                  =: Assign 
+                &&: Logical And
                 (): Operator precedence or function invokation.
                 //: comment character
                 /T: Test url path
@@ -737,36 +737,57 @@ HN1_Mai();
                //:: My personal colored comment sequence
                200: HTTP Status Code: Okay.
                ===: Strict Equality Comparison
+               CTO: Convert_TO
                D_U: Database_Url
+               FEO: First_Error_Only
                HN1: Heroku_Node_01 (Project Namespace)
                HN2: HerokuNode(lean)02 ( Namespace )
                HN3: HerokuNode(lean)03 ( Namespace )
                HN4: HerokuNode(lean)04 ( Namespace )
+               NFO: Not_Filled_Out
                POR: Shorthand. SEE[ PORT ]
                UTF: Unicode Transformation Format (ASCI++)
                act: Action to perform
                cli: Client object. Probably PostGres PG client.
                cof: ContentsOf_ile (file_path ==> file_contents)
+               cot: COntent_type (object)
+               cto: Dont use lowercase "cto"
                dar: Database Response. USE[ ros ] instead.
+               dat: DATa
                daw: DataAndWhatever
                end: Server is done talking to client.
                env: contains virtual machine's environment vars
                err: An error string. MAYBE error object.
+               for: denotes a for-loop in JavaScript
+               k_v: [ key , val ] tuple.
+               key: Key in [ key , val ] or in { key : val }
+               len: Number of elements in array.
+               log: Writes string to console.
                new: New keyword instantiates instances
+               nir: Number_Iterations_Ran
                pac: Path And Contenttype
+               pam: PAraMeters (url parameters after "?")
                pas: Did whatever pass boolean as integer.
                pgc: PostGres_Client, just use [ cli ]
+               pof: Path_Of_File
                pro: Promise instance
+               rap: Relativeurl_And_Parameters (query params)
                rar: rar[0]==req, rar[1]==res
                req: REQuest  object
                res: RESponse object (TYPE:ServerResponse)
                ros: Result_Of_SQL (AKA: dar but use ros)
+               sob: State_OBject
                src: Denote path to javascript source file
                ssl: Secure_Sockets_Layer (But probably:TLS)
+               str: STRing
+               tab: Four spaces.
                tls: Transport_Layer_Security (Updated ssl)
                try: Attempt a block of guarded code.
                url: Uniform_Resource_Locator
+               val: Val in [ key , val ] or in { key : val }
                var: function scope variable
+               vit: Variable_Integer_Type (vartype integer tag)
+               wha: WHAtever
               "/C": SHORT path: Create  ( DEMONSTRATION )
               "/D": SHORT path: Delete  ( DEMONSTRATION )
               "/H": Routes to our HTML file.
@@ -788,11 +809,14 @@ HN1_Mai();
               http: hyper_text_transer_protocol
               null: A pointer to nothing. 
               rows: Rows returned from sql query
+              seal: Do not allow new properties to be added.
               then: Do this if promise accepted
               true: Boolean value for [  set/on ] bit.
+              void: Function takes or returns nothing.
              "SQL": Structured_Query_Language (Folder)
              ROUTE: Relative url identifying page or resource
              alert: Display an alert box
+             async: Denotes an asynchronous function.
              await: Pause execution here until async returns.
              catch: Do this if promise rejected or error.
              const: immutable block-scope variable
@@ -805,10 +829,14 @@ HN1_Mai();
              write: Writes in body of response to client.
             <head>: Metadata container element.
             ACTION: A function to be performed with DATA
+            Client: PostGreSql "pg" library Client type.
+            Object: Universal base type, often key:value pairs.
             length: Number of elements in an array
             listen: Creates listener on specified port.
             return: Return keyword returns value from function.
             script: Declare script reference in HTML file.
+            string: Built-in character array type.
+            typeof: Returns type name string of object.
             window: Represents an open window in a browser.
            "BEGIN": Groups SQL statements into a transaction.
            "utf-8": Unicode byte encoding. Extends: US-ASCII
@@ -829,17 +857,37 @@ HN1_Mai();
            HN4_E03: HerokuNode4_Error #3
            HN4_E04: HerokuNode4_Error #4
            HN4_ERR: HerokuNode04_ERRor
+           HN5_E01: HerokuNode(lean)[ #5 ] : Error[ #1 ]
+           HN5_E02: HerokuNode(lean)[ #5 ] : Error[ #2 ]
+           HN5_E03: HerokuNode(lean)[ #5 ] : Error[ #3 ]
+           HN5_E04: HerokuNode(lean)[ #5 ] : Error[ #4 ]
+           HN5_E05: HerokuNode(lean)[ #5 ] : Error[ #5 ]
+           HN5_E06: HerokuNode(lean)[ #5 ] : Error[ #6 ]
+           HN5_E07: HerokuNode(lean)[ #5 ] : Error[ #7 ]
+           HN5_E08: HerokuNode(lean)[ #5 ] : Error[ #8 ]
+           HN5_E09: HerokuNode(lean)[ #5 ] : Error[ #9 ]
            IMPORTS: A list of imports at top of file.
            Minimal: No extranious moving parts.
+           NOT_SET: Denotes forgot to set string value.
            Promise: Promise class built into NodeJS
+           SOB_VIT: Enum: sob's VIT:VariableIntegerType 
+           any_obj: Any_OBJect
+           arr_ent: ARRay_of_ENTries (NOT:AN entry within array)
            charset: Denote character encoding of file. 
+           cof_ros: [ cof,ros ]( ContentsOfFile,ResultOfSQL )
            connect: Connect to database.
+           console: Standard output device.
            dat_fil: DEPRECATED_USE[ cof ](cof:ContentsOfFile)
+           entries: All {key:val} pairs in an object.
+           err_obj: BACKWARDS_USE[ obj_err ]
            example: Show you how it is done
            finally: Always do this part of try/catch block.
+           inn_err: INNput_ERRor
            jum_dic: JUMp_DICtionary (Like a jumptable)
+           key_val: [ key , val ]
            not_nil: Denote object is not [nil/null]
            obj_cin: OBJect_ConnectionINformation
+           obj_ent: Object.entries
            obj_err: Object of duck-type error.
            process: built-in Node.js global [variable/object]
            rar_daw: [ raw , daw ] packed together.
@@ -848,6 +896,10 @@ HN1_Mai();
            ror_boo: ResolveOrReject_BOOlean
            ror_dat: ResolveOrReject_DATa
            src_pat: SouRCe_PATh (Path to source text)
+           str_all: STRing_ALL     (Multiple str_cur concatted)
+           str_cur: STRing_CURrent (Current string)
+           str_key: STRing_key (key as string)
+           str_val: STRing_val (val as string)
            tab_act: TABle_of_ACTions
            tab_daw: TABle_of_DataAndWhatever
           "COMMIT": Commit changes made by SQL transation.
@@ -865,8 +917,8 @@ HN1_Mai();
          "/CRUD_R": LONG  path: Read    ( DEMONSTRATION )
          "/CRUD_U": LONG  path: Update  ( DEMONSTRATION )
          setHeader: Sets single header value for headers object.
+         undefined: like null, but usually indicates MISTAKE.
          writeHead: Sends a response header to the request
-        FILE_SCOPE_VARIABLES :: File scope in the C99 sense.
         JavaScript: The language used by Node.js servers
         Javascript: Poorly capitalized "JavaScript"
        "SQL_RUN_C": Tells us a CREATE function should be ran.
@@ -893,11 +945,11 @@ HN1_Mai();
      HN4_SQL_Run_D: Action to run DELETE sql command.
      HN4_SQL_Run_R: Action to run READ   sql command.
      HN4_SQL_Run_U: Action to run UPDATE sql command.
+    "Content-Type": Header indicating media type of resource.
     "Content-Type": Key denoting the MIME type of payload.
     "SQL_GET_TEST": Action to perform is SQL GET TEST.
     "WINDOW_ALERT": Placeholder string.
     FUNCTION_INDEX: A list of function names at top of file
-   " Content-Type": Header indicating media type of resource.
    <!DOCTYPE HTML>: Tell browser document type is HTML.
    HN2_SQL_Get_Tes: Get SQL file as string test.
    HN2_SQL_Get_Tes: SQL_Get_Test
@@ -908,17 +960,20 @@ HN1_Mai();
  "text/javascript": "Content-Type" for javascript files
 "ROWS_OBJECT_DOES_NOT_EXIST" :: Helpful info for example code.
 "ROWS_OBJECT_IS_EMPTY_ARRAY" :: Helpful info for example code.
-const A=(B)=>{...}: function "A" taking param "B"
-rejectUnauthorized: Worry about verifying server identity?
-           HN5_E01: HerokuNode(lean)[ #5 ] : Error[ #1 ]
-           HN5_E02: HerokuNode(lean)[ #5 ] : Error[ #2 ]
-           HN5_E03: HerokuNode(lean)[ #5 ] : Error[ #3 ]
-           HN5_E04: HerokuNode(lean)[ #5 ] : Error[ #4 ]
-           HN5_E05: HerokuNode(lean)[ #5 ] : Error[ #5 ]
-           HN5_E06: HerokuNode(lean)[ #5 ] : Error[ #6 ]
-           HN5_E07: HerokuNode(lean)[ #5 ] : Error[ #7 ]
-           HN5_E08: HerokuNode(lean)[ #5 ] : Error[ #8 ]
-           HN5_E09: HerokuNode(lean)[ #5 ] : Error[ #9 ]
-               NFO: Not_Filled_Out
-            
+FILE_SCOPE_VARIABLES :::::::::: File scope in the C99 sense.
+HN5_Cli_End ::::::::::::::::::: Client.end()
+HN5_End_001 ::::::::::::::::::: End response using 1 parameter
+HN5_End_002 ::::::::::::::::::: End response using 2 parameters
+HN5_End_003 ::::::::::::::::::: End response using 3 parameters
+HN5_NEW_sob ::::::::::::::::::: Instantiate new sob
+HN5_Pri_sob_ASA_cof_ros ::::::: Print sob as a cof_ros
+HN5_Wri_002 ::::::::::::::::::: Write using 2 parameters
+HN5_Wri_Hea_200 ::::::::::::::: Write Head with 200 status
+HN5_Wri_sob ::::::::::::::::::: Write sob object to response
+HN5_Wri_sob_AND_end ::::::::::: Write sob and end response
+HN5_err_CTO_str ::::::::::::::: Error ConvertTO string
+HN5_sob ::::::::::::::::::::::: State_Object_Bundle
+const A=(B)=>{...} :::::::::::: function "A" taking param "B"
+rejectUnauthorized :::::::::::: verifying server identity?
+
 **-*********************************************************-**/
